@@ -25,6 +25,7 @@ Promise.myRace = function (promises) {
     return new Promise((resolve, reject) => {
       let result = [];
       promises.forEach((p, i) => {
+        // Promise.resolve(p) // sometimes p is Promise.resolve(true);
             p
             .then(res => {
               result[i] = res;
