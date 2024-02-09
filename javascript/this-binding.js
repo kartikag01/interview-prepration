@@ -12,7 +12,8 @@ Function.prototype.myBind = function (thisContext, ...args) {
     //   };
     
     // problem with above approach is we are adding iterative property in keys of thisContext.
-      return (...newArgs) => {
+    // arrow function will work only, else do that = this;
+    return (...newArgs) => {
         let random = Symbol();
         thisContext[random] = this;
         let res = thisContext[random](...args, ...newArgs);

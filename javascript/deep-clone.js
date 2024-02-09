@@ -12,7 +12,6 @@ export default function deepClone(value) {
     }
     if(typeof value === "object") {
       let mainObj = {};
-      console.log(value);
       for(let [key, val] of Object.entries(value)) {
         mainObj[key] = deepClone(val);
       }

@@ -11,7 +11,7 @@ function memoize(callback, resolver) {
     function memo(...args) {
       let key = getCacheKey(args);
       
-      // remember this, cache[key] can be undefined
+      //NOTE: remember this, cache[key] can be undefined
       if (cache.hasOwnProperty(key)) {
         return cache[key];
       }

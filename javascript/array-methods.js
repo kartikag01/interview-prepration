@@ -1,5 +1,4 @@
 Array.prototype.myMap = function (callback) {
-  // Write your code here.
   let arr = [];
   for(let i = 0 ; i < this.length ; i++) {
     arr[i] = callback.call(this, this[i], i, this)
@@ -8,10 +7,9 @@ Array.prototype.myMap = function (callback) {
 };
 
 Array.prototype.myFilter = function (callback) {
-  // Write your code here.
   let arr = [];
   for(let i = 0 ; i < this.length ; i++) {
-    if(callback(this[i], i, this) === true) {
+    if(callback(this[i], i, this) === true) { // NOTE
       arr.push(this[i]);
     }
   }
@@ -19,7 +17,6 @@ Array.prototype.myFilter = function (callback) {
 };
 
 Array.prototype.myReduce = function (callback, initialValue) {
-  // Write your code here.
   let acc = initialValue;
   for(let i = 0 ; i < this.length ; i++) { 
     if(acc != undefined ) {

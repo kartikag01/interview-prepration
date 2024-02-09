@@ -1,12 +1,13 @@
 function debounce(callback, delay, immediate = false) {
     let timer;
+    // arrow function will not work, since callbacks should have the `this` context of the debounced function caller
     return function (...args) {
       
       if(immediate && !timer) {
         callback.call(this, ...args);
       }
       
-      clearTimeout(timer);
+      clearTimeout(timer); // NOTE
       
       timer = setTimeout(() => {
         if(!immediate) {

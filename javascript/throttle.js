@@ -3,7 +3,7 @@ function throttle(callback, delay) {
     let lastCalledTime = 0;
     
     const throttledFunction = function(...args) {
-      let delayRemaining = delay - Date.now() + lastCalledTime;
+      let delayRemaining = lastCalledTime + delay - Date.now();
       if(delayRemaining <= 0) {
         lastCalledTime = Date.now();
         callback.call(this, ...args);  
@@ -25,4 +25,3 @@ function throttle(callback, delay) {
   
   // Do not edit the line below.
   exports.throttle = throttle;
-  

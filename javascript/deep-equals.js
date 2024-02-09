@@ -1,6 +1,4 @@
-function deepEquals(valueOne, valueTwo, print= true) {
-    if(print) console.log(valueOne, valueTwo);
-    
+function deepEquals(valueOne, valueTwo) {
     if(typeof valueOne !== typeof valueTwo) {
       return false;
     }
@@ -8,11 +6,12 @@ function deepEquals(valueOne, valueTwo, print= true) {
     else if(Array.isArray(valueOne) && Array.isArray(valueTwo)) {
       return deepEqualsArray(valueOne, valueTwo);
     }
-  
+    
     else if(isObject(valueOne) && isObject(valueTwo)) {
       return deepEqualsObject(valueOne, valueTwo);
     }
   
+    //NOTE:
     else if (Number.isNaN(valueOne) && Number.isNaN(valueTwo)){ 
         return true;
     }
@@ -20,7 +19,9 @@ function deepEquals(valueOne, valueTwo, print= true) {
     return valueOne === valueTwo;
   }
   
+  // NOTE:
   function isObject(value) {
+    // will not work with undefined.?
     return typeof value === 'object' && value != null && !Array.isArray(value)
   }
   
@@ -28,7 +29,7 @@ function deepEquals(valueOne, valueTwo, print= true) {
     if(one.length !== two.length) return false;
     
     for(let i =0 ; i< one.length; i++) {
-      if(!deepEquals(one[i], two[i], false)) {
+      if(!deepEquals(one[i], two[i])) {
         return false
       }
     }
@@ -41,11 +42,11 @@ function deepEquals(valueOne, valueTwo, print= true) {
        return false;
     }
     for(let key in one) {
-      // key should exist in object two also.
+      //NOTE: key should exist in object two also.
       if(!two.hasOwnProperty(key)){
         return false;
       }
-      if(!deepEquals(one[key], two[key], false)) {
+      if(!deepEquals(one[key], two[key])) {
         return false;
       }  
     }
