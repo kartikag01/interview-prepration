@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function usePrevious(value: any) {
   // The ref object is a generic container whose current property is mutable ...
   // ... and can hold any value, similar to an instance property on a class

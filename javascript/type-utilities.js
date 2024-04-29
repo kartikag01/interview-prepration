@@ -1,81 +1,83 @@
-export function isBoolean(value) {
-    return value === true || value === false;
-  }
-  
-  export function isNumber(value) {
-    return typeof value === 'number';
-  }
-  
-  export function isNull(value) {
-    return value === null;
-  }
-  
-  export function isString(value) {
-    return typeof value === 'string';
-  }
-  
-  export function isSymbol(value) {
-    return typeof value === 'symbol';
-  }
-  
-  export function isUndefined(value) {
-    return value === undefined;
-  }
-  
+console.log(typeof undefined); // 'undefined'
+console.log(typeof null); // 'object'
 
-  export function isArray(value) {
-    return Array.isArray(value);
+export function isBoolean(value) {
+  return value === true || value === false;
+}
+
+export function isNumber(value) {
+  return typeof value === 'number';
+}
+
+export function isNull(value) {
+  return value === null;
+}
+
+export function isString(value) {
+  return typeof value === 'string';
+}
+
+export function isSymbol(value) {
+  return typeof value === 'symbol';
+}
+
+export function isUndefined(value) {
+  return value === undefined;
+}
+
+export function isArray(value) {
+  return Array.isArray(value);
+}
+
+// Alternative to isArray.
+export function isArrayAlt(value) {
+  // For null and undefined.
+  if (value == null) {
+    return false;
   }
-  
-  // Alternative to isArray.
-  export function isArrayAlt(value) {
-    // For null and undefined.
-    if (value == null) {
-      return false;
-    }
-  
-    return value.constructor === Array;
+
+  return value.constructor === Array;
+}
+
+export function isFunction(value) {
+  return typeof value === 'function';
+}
+
+export function isObject(value) {
+  // For null and undefined.
+  if (value == null) {
+    return false;
   }
-  
-  export function isFunction(value) {
-    return typeof value === 'function';
+
+  const type = typeof value;
+  return type === 'object' || type === 'function';
+}
+
+export function isPlainObject(value) {
+  // For null and undefined.
+  if (value == null) {
+    return false;
   }
-  
-  export function isObject(value) {
-    // For null and undefined.
-    if (value == null) {
-      return false;
-    }
-  
-    const type = typeof value;
-    return type === 'object' || type === 'function';
+
+  const prototype = Object.getPrototypeOf(value);
+  return prototype === null || prototype === Object.prototype;
+}
+
+// Alternative to isPlainObject, Lodash's implementation.
+export function isPlainObjectAlternative(value) {
+  if (!isObject(value)) {
+    return false;
   }
-  
-  export function isPlainObject(value) {
-    // For null and undefined.
-    if (value == null) {
-      return false;
-    }
-  
-    const prototype = Object.getPrototypeOf(value);
-    return prototype === null || prototype === Object.prototype;
+
+  // For objects created via Object.create(null);
+  if (Object.getPrototypeOf(value) === null) {
+    return true;
   }
-  
-  // Alternative to isPlainObject, Lodash's implementation.
-  export function isPlainObjectAlternative(value) {
-    if (!isObject(value)) {
-      return false;
-    }
-  
-    // For objects created via Object.create(null);
-    if (Object.getPrototypeOf(value) === null) {
-      return true;
-    }
-  
-    let proto = value;
-    while (Object.getPrototypeOf(proto) !== null) {
-      proto = Object.getPrototypeOf(proto);
-    }
-  
-    return Object.getPrototypeOf(value) === proto;
+
+  let proto = value;
+  while (Object.getPrototypeOf(proto) !== null) {
+    proto = Object.getPrototypeOf(proto);
   }
+
+  return Object.getPrototypeOf(value) === proto;
+}
