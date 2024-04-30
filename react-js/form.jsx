@@ -4,8 +4,16 @@ function App() {
     function handleSumit(event) {
         event.preventDefault();
 
+        let formData = new FormData(e.target);
+        let dataObject = Object.fromEntries(formData)
+
         const formData = new FormData(e.target);
-        const { email, password } = Object.entries(formData.entries());
+        // NOTE
+        // formData.get("email");
+        console.log(formData.get('username'))
+        console.log(formData.get('password'))
+
+        const allFormData = Object.fromEntries(formData);
 
         fetch("/api/sign-in", {
             method: "POST",
@@ -16,14 +24,14 @@ function App() {
                 "Content-Type": "application/json"
             }
         })
-        .then(res => {
-            if(res.ok) {
-                console.log("Signed in");
-                e.currentTarget.reset();
-            } else {
-                console.error("Failed to sign in")
-            }
-        });
+            .then(res => {
+                if (res.ok) {
+                    console.log("Signed in");
+                    e.currentTarget.reset();
+                } else {
+                    console.error("Failed to sign in")
+                }
+            });
     }
 
 
