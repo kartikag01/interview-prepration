@@ -94,12 +94,12 @@ class LRUCache {
     }
 
     put(key, value) {
-        let node = new Node(key, value);
+        let node = new Node(key, value); // NOTE
 
         if (this.cache.has(key)) {
             this.dbLL.remove(this.cache.get(key));
         } else if (this.cache.size >= this.capacity) {
-            let leastUsedKey = this.dbLL.removeLast();
+            let leastUsedKey = this.dbLL.removeLast();  // NOTE
             this.cache.delete(leastUsedKey);
         }
 
