@@ -18,6 +18,9 @@ function flattenArray(array) {
 function flattenObject(object) {
   let newObject = {};
 
+  // for (const [key, value] of Object.entries(obj)) { }
+  // for (const key in object) { }
+
   for (let key of Object.keys(object)) {
     let value = object[key];
     let flattenValue = flatten(value);
