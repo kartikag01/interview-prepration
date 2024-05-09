@@ -42,5 +42,6 @@ Array.prototype.myFlat = function () {
 // console.log(inputArray.myFlat());
 
 
+// NOTE:
 // concat return new array
 // push modify current array and returns length
