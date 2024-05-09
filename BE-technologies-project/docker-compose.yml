@@ -1,0 +1,22 @@
+version: "3.4"
+
+services:
+  postgres:
+    container_name: articles-db
+    image: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: threads
+      POSTGRES_PASSWORD: threads
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+
+volumes:
+  postgres_data:
