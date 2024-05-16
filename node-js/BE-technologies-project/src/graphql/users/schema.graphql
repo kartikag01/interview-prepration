@@ -1,0 +1,21 @@
+type Query {
+    hello: String
+}
+
+type Mutation {
+    createUser(input: AddUserInput!): User!
+}
+
+type User {
+    id: String!
+    firstName: String! #require
+    lastName: String!
+    email: String!
+    profileImageURL: String
+}
+
+input AddUserInput {
+    name: String!
+    email: String!
+    # role: String!
+}
