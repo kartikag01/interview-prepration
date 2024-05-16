@@ -4,26 +4,16 @@ class EventEmitter {
         this.subscriptions = {};
     }
 
-    /**
-     * @param {string} eventName
-     * @param {Function} callback
-     * @return {Object}
-     */
     subscribe(eventName, callback) {
         this.subscriptions[eventName] = (this.subscriptions[eventName] || []).concat(callback);
         return {
             unsubscribe: () => {
                 let subEvents = this.subscriptions[eventName];
-                subEvents.splice(subEvents.indexOf(callback), 1);
+                subEvents.splice(subEvents.indexOf(callback), 1); // NOTE
             }
         };
     }
 
-    /**
-     * @param {string} eventName
-     * @param {Array} args
-     * @return {Array}
-     */
     emit(eventName, args = []) {
         let callbacks = (this.subscriptions[eventName] || []);
         return callbacks.map(callback => callback(...args)) || [];

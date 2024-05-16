@@ -10,10 +10,12 @@ Promise.myRace = function (promises) {
 
 Promise.myAny = function (promises) {
   return new Promise((resolve, reject) => {
+    let rejectedCount = 0;
     promises.forEach((p, i) => {
       p.then(res => resolve(res))
         .catch(err => {
-          if (i === promises.length - 1) {
+          rejectedCount++;
+          if (rejectedCount === promises.length) {
             reject('all promises rejected');
           }
         });
@@ -22,7 +24,6 @@ Promise.myAny = function (promises) {
 };
 
 Promise.myAll = function (promises) {
-  console.log("myAll");
   return new Promise((resolve, reject) => {
     let result = [];
     promises.forEach((p, i) => {
@@ -64,13 +65,34 @@ Promise.myAllSettled = function (promises) {
   }, []);
 };
 
+// How can you execute an array of promise in sequence
+Promise.sequenceExecution = async function (promises) {
+  let result = []
+  return new Promise(async (resolve, reject) => {
+    for (let i = 0; i < promises.length; i++) {
+      let response = await promises[i]();
+      result[i] = response;
+    }
+    resolve(result);
+  });
+
+  // With reduce.
+  // const result = await promises.reduce(async (accumulator, currentPromise) => {
+  //   const results = await accumulator; // NOTE
+  //   return [...results, await currentPromise];
+  // }, Promise.resolve([]));
+  // console.log(result);
+}
+
+
+
 // const p1 = Promise.resolve(1);
 // const p2 = Promise.resolve(2);
 // const p3 = Promise.resolve(3);
-new Promise((resolve, reject) => {
-  console.log("4 running")
-  resolve(4);
-});
+// new Promise((resolve, reject) => {
+//   console.log("4 running")
+//   resolve(4);
+// });
 
 // p4.then(console.log)
 

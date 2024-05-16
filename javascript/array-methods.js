@@ -1,5 +1,8 @@
 // NOTE: no arrow function, in arrow func this is not will be having current array.
 Array.prototype.myMap = function (callback) {
+  if (typeof callback !== "function") {
+    throw new Error("callback should be function");
+  }
   let arr = [];
   for (let i = 0; i < this.length; i++) {
     arr[i] = callback.call(this, this[i], i, this)
@@ -30,10 +33,13 @@ Array.prototype.myReduce = function (callback, initialValue) {
   return acc;
 };
 
-Array.prototype.myFlat = function () {
+Array.prototype.myFlat = function (depth = 1) {
   return this.reduce((acc, curr) => {
+    if (depth === 0) {
+      return acc.concat(curr);
+    }
     return acc.concat(
-      Array.isArray(curr) ? curr.myFlat() : curr
+      Array.isArray(curr) ? curr.myFlat(depth - 1) : curr
     );
   }, []);
 }

@@ -17,6 +17,11 @@ for (let key of Object.keys(object)) {
 
 }
 
+// another way.
+for (let [key, value] of Object.entries(object)) {
+
+}
+
 // ASKI
 "abc".charCodeAt(0); // 97
 String.fromCharCode(65); // A

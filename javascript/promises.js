@@ -4,6 +4,11 @@ const STATE = {
   REJECTED: 'rejected',
 };
 
+
+// new Promise((resolve, reject) => {
+//
+// });
+
 class MyPromise {
   #state = STATE.PENDING;
   #value = null;
@@ -11,8 +16,8 @@ class MyPromise {
   constructor(executorFunc) {
     try {
       executorFunc(
-        val => this.#resolve(val);
-      val => this.#reject(val);
+        val => this.#resolve(val),
+        val => this.#reject(val)
       );
     } catch (error) {
       this.#reject(error);
