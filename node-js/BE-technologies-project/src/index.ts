@@ -11,6 +11,12 @@ const { expressMiddleware } = require("@apollo/server/express4");
 // `;
 
 
+function errorMiddleWare(err: any, req: any, res: any, next: any) {
+    console.error(err.stack);
+    res.status(500).send(err.message);
+}
+
+
 async function init() {
     const app = express();
 
@@ -21,9 +27,15 @@ async function init() {
     // GraphQL
     app.use("/grapphql", expressMiddleware(await createApolloGraphQLServer()));
 
+    app.use("/static", (req, res, next) => {
+        throw new Error("Not found");
+    });
+
     app.use("/", (req, res) => {
         res.send("Graphql server is on /grapphql");
     });
+
+    app.use(errorMiddleWare);
 
     const PORT = process.env.PORT || 3000;
 

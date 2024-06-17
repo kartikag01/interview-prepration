@@ -46,8 +46,3 @@ Array.prototype.myFlat = function (depth = 1) {
 
 // const inputArray = [0, 1, 2, [3, 4, [5, 6]], 7];
 // console.log(inputArray.myFlat());
-
-
-// NOTE:
-// concat return new array
-// push modify current array and returns length

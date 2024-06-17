@@ -1,11 +1,16 @@
+### starts
+```
+docker compose up
+
+```
 node.js
 Express
 graphql - apollo
 postgres
+form validations - jio, vinejs
 
 docker
-    docket-compose
-
+    docker compose up
 
 Prisma
     - npx prisma init
