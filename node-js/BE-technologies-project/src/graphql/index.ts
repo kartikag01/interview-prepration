@@ -3,9 +3,9 @@ import { User } from './users';
 import { Posts } from './posts';
 import { readFileSync } from "node:fs";
 
-const userTypeDefs = readFileSync(require.resolve('./users/schema.graphql'), { encoding: 'utf-8' });
-const postTypeDefs = readFileSync(require.resolve('./posts/schema.graphql'), { encoding: 'utf-8' });
-console.log(postTypeDefs)
+// const userTypeDefs = readFileSync(require.resolve('./users/schema.graphql'), { encoding: 'utf-8' });
+// const postTypeDefs = readFileSync(require.resolve('./posts/schema.graphql'), { encoding: 'utf-8' });
+// console.log(postTypeDefs)
 
 
 async function createApolloGraphQLServer() {

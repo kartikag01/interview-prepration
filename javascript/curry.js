@@ -5,7 +5,7 @@ function curry(callback) {
     }
     return (...otherArgs) => {
       if (otherArgs.length === 0) {
-        return callback(...args);
+        return callback(...args); // NOTE
       }
       // NOTE: args
       return curriedCallback(...args, ...otherArgs);
