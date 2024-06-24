@@ -5,6 +5,7 @@ import express from 'express';
 import { server } from "typescript";
 import createApolloGraphQLServer from "./graphql";
 const { expressMiddleware } = require("@apollo/server/express4");
+var cookieParser = require('cookie-parser');
 
 // const typeDefs = gql`
 //   ${require('fs').readFileSync(require.resolve('./graphql/schema.graphql'), 'utf8')}
@@ -21,6 +22,8 @@ async function init() {
     const app = express();
 
     app.use(cors());
+    app.use(cookieParser());
+    // res.cookie("userData", users); 
     app.use(express.json()); // body-parser
     app.use(express.urlencoded({ extended: true }));
 
