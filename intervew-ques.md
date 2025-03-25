@@ -50,7 +50,8 @@ function Reactoutput() {
 2. We have form and Firebase DB, with DB limit of 100req/sec.
 3. Food delivery app Design.
 
-
+## Dev Ops
+1. how to manage variables for which are based on env, like base_url, secreat_manager.
 
 
 ### SQL
