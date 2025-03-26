@@ -8,7 +8,7 @@ function deepClone(value) {
     return value;
   }
   if (Array.isArray(value)) {
-    return value.map(_ => deepClone(_));
+    return value.map(_ => deepClone(_)); // no concat.
   }
   if (typeof value === "object") {
     let mainObj = {};
@@ -25,7 +25,7 @@ function deepClone2(ob) {
   let newObj = {};
 
   if (Array.isArray(ob)) {
-    return ob.reduce((acc, curr) => acc.contact(deepClone2(curr)), []);
+    return ob.reduce((acc, curr) => acc.concat(deepClone2(curr)), []);
   } else if (typeof obj === "object") {
     let innerObj = {}
     for (let key in obj) {

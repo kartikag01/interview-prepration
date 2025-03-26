@@ -15,7 +15,9 @@ unshift(...items: T[]): number;
 Inserts new elements at the start of an array, and returns the new length of the array, Mutable 
 
 shift()
-Removes the first element from an array and returns it, Mutable 
+Removes the first element from an array and returns it, Mutable
+
+split();
 */
 
 // REDUX - immutable array

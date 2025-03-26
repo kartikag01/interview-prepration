@@ -1,3 +1,9 @@
+/**
+ * when first time throttleled function is called then 
+ * underlying callback should run immediately.
+ * if its called again before delay, then next call should be scheduled for delay ms after the last call.
+ * it called multiple times, args form last call should be used.
+ */
 function throttle(callback, delay) {
   let timer;
   let lastCalledTime = 0;

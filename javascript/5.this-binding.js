@@ -2,7 +2,7 @@
 Function.prototype.myBind = function (thisContext, ...args) {
   // NOTE: arrow function will work, else do that = this;
   return (...newArgs) => {
-    let random = Symbol(); // Math.random();
+    let random = Symbol(); // like Math.random(); but provide unique value.
     thisContext[random] = this;
     // thisContext.this(...args, ...newArgs);
     let res = thisContext[random](...args, ...newArgs);

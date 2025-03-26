@@ -1,3 +1,8 @@
+/**
+ * debounced version of Callback should be called after delay ms.
+ * repeatedly called, should call the callback after delay ms have passed since the last call.
+ */
+
 function debounce(callback, delay, immediate = false) {
   let timer;
   // arrow function will not work, since callbacks should have the `this` context of the debounced function caller

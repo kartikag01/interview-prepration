@@ -40,3 +40,7 @@ function flattenObject(object) {
 
 // Do not edit the line below.
 exports.flatten = flatten;
+
+
+const a = flatten({a: 1, b: {c: 2, d: 3, e: {f: 4, d: [1,2,3, [4, 5, [6,7]]]}}});
+console.log(a);
