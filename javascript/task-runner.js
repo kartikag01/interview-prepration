@@ -2,7 +2,7 @@ function TaskRunner(concurrency) {
     this.concurrency = concurrency;
     this.waitingQ = [];
     this.running = 0;
-    this.next = this.next.bind(this);
+    this.next = this.next.bind(this); // WHY ?
 }
 
 TaskRunner.prototype.push = function (task) {
