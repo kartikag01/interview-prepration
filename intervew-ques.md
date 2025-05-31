@@ -54,6 +54,11 @@ function Reactoutput() {
 1. how to manage variables for which are based on env, like base_url, secreat_manager.
 
 
+## System Design 
+- What are Trx. ?
+- How to achive distributed trx.
+- 
+
 ### SQL
 What is the result of Inner Join between the tables A & B?
 Table A
