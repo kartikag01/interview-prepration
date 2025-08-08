@@ -76,3 +76,14 @@ NULL
 NULL
 
 ANS - 3
+
+
+### Fast APIs Ques.
+1.  difference between synchronous and asynchronous code execution -> async await
+2.  common ways to handle errors in FastAPI
+3.  Describe the purpose of the "Depends" function in FastAPI.
+4.  How do you implement database queries and data manipulation using in FastAPI - ORM / without ORM?
+5.  what is uvicorn server in fastapi
+6.  how to handle request and response validation in fastapi
+7.  Difference between path param, query params, body
+8.   
