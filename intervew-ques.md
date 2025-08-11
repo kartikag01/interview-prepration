@@ -88,3 +88,7 @@ ANS - 3
 6.  how to handle request and response validation in fastapi
 7.  Difference between path param, query params, body
 8.   
+
+
+Python 
+1. Decorators in python
