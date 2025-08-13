@@ -40,3 +40,5 @@
 /**
  * CORS
  */
+
+- Rate Limiting 
