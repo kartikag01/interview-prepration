@@ -43,7 +43,13 @@ function Reactoutput() {
 7. Difference btw call, apply, bind
 8. Difference btw normal func and arrow func.
 9. deepEquals in JS.
-
+10. Find output
+```
+console.log(0);
+setTimeout(() => console.log(1), 0);
+Promise.resolve().then(res => console.log(2));
+console.log(3);
+```
 
 ## Node
 1. Explain how node.js handle async process.
