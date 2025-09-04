@@ -35,15 +35,16 @@ function Reactoutput() {
 
 ## JS Questions (junior to senior):
 1. What is the difference between let and const?
-2. What is a callback, when would you use one?
-3. What is the difference between == and ===?
-4. What is hoisting?
-5. What is a closure?
-6. What is the event loop?
-7. Difference btw call, apply, bind
-8. Difference btw normal func and arrow func.
-9. deepEquals in JS.
-10. Find output
+2. what is polyfill in javascript
+3. What is a callback, when would you use one?
+4. What is the difference between == and ===?
+5. What is hoisting?
+6. What is a closure?
+7. What is the event loop?
+8. Difference btw call, apply, bind
+9. Difference btw normal func and arrow func.
+10. deepEquals in JS.
+11. Find output
 ```
 console.log(0);
 setTimeout(() => console.log(1), 0);
